@@ -10,6 +10,8 @@ You want to return the response right away, but you also need to start the addit
 How to Use
 ===
 
+Download and install the [Nito.AspNetBackgroundTasks NuGet package](https://www.nuget.org/packages/Nito.AspNetBackgroundTasks/).
+
 You can start background work by calling `BackgroundTaskManager.Run`:
 
 ````C#
