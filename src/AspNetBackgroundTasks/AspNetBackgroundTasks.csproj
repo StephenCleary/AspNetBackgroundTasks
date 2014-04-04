@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="BackgroundTaskManager.cs" />
     <Compile Include="Internal\AsyncCountdownEvent.cs" />
+    <Compile Include="Internal\RegisteredTasks.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
