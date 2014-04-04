@@ -1,3 +1,5 @@
+![logo](https://raw.githubusercontent.com/StephenCleary/AspNetBackgroundTasks/master/icon.png)
+
 Fire and Forget
 ===
 
