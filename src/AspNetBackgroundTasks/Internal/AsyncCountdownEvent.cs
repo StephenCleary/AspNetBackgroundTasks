@@ -48,24 +48,11 @@ namespace Nito.AspNetBackgroundTasks.Internal
         /// <summary>
         /// Attempts to modify the current count by the specified amount. This method returns <c>false</c> if the new current count value would be invalid, or if the count has already reached zero.
         /// </summary>
-        /// <param name="signalCount">The amount to change the current count. This may be positive or negative, but not zero.</param>
-        private bool ModifyCount(int signalCount)
+        /// <param name="signalCount">The amount to change the current count. This must be +1 or -1.</param>
+        private void ModifyCount(int signalCount)
         {
-            while (true)
-            {
-                int oldCount = Interlocked.CompareExchange(ref _count, 0, 0);
-                if (oldCount == 0)
-                    return false;
-                int newCount = oldCount + signalCount;
-                if (newCount < 0)
-                    return false;
-                if (Interlocked.CompareExchange(ref _count, newCount, oldCount) == oldCount)
-                {
-                    if (newCount == 0)
-                        _tcs.SetResult(null);
-                    return true;
-                }
-            }
+            if (Interlocked.Add(ref _count, signalCount) == 0)
+                _tcs.TrySetResult(null);
         }
 
         /// <summary>
@@ -73,8 +60,7 @@ namespace Nito.AspNetBackgroundTasks.Internal
         /// </summary>
         public void AddCount()
         {
-            if (!ModifyCount(1))
-                throw new InvalidOperationException("Cannot increment count.");
+            ModifyCount(1);
         }
 
         /// <summary>
@@ -82,8 +68,7 @@ namespace Nito.AspNetBackgroundTasks.Internal
         /// </summary>
         public void Signal()
         {
-            if (!ModifyCount(-1))
-                throw new InvalidOperationException("Cannot decrement count.");
+            ModifyCount(-1);
         }
 
         // ReSharper disable UnusedMember.Local
