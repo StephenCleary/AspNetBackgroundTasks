@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Hosting;
-using Nito.AsyncEx;
+using Nito.AspNetBackgroundTasks.Internal;
 
 namespace Nito.AspNetBackgroundTasks
 {
