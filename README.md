@@ -1,7 +1,7 @@
 Fire and Forget
 ===
 
-When you have enough data to create the ASP.NET response, but you still have more work to do.
+This is one solution for a "fire and forget" scenario on ASP.NET: when you have enough data to send the response, but you still have additional work to do.
 
 You want to return the response right away, but you also need to start the additional work in the background.
 
