@@ -7,6 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetBackgroundTasks", "As
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E001111F-9D34-4FEE-B560-952F17F84756}"
 	ProjectSection(SolutionItems) = preProject
+		AspNetBackgroundTasks\AspNetBackgroundTasks.nuspec = AspNetBackgroundTasks\AspNetBackgroundTasks.nuspec
 		..\README.md = ..\README.md
 	EndProjectSection
 EndProject

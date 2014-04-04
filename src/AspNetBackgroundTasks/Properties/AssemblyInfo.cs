@@ -15,4 +15,10 @@ using System.Runtime.InteropServices;
 // COM, set the ComVisible attribute to true on that type.
 [assembly: ComVisible(false)]
 
-[assembly: AssemblyVersion("1.0.0")]
+[assembly: AssemblyVersion(AssemblyVersion.Version)]
+[assembly: AssemblyInformationalVersion(AssemblyVersion.Version)]
+
+internal class AssemblyVersion
+{
+    public const string Version = "1.0.0";
+}
