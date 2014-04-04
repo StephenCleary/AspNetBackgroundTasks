@@ -88,3 +88,10 @@ Minimizing Unreliability
 Just because the solution is unreliable, doesn't mean it must be *totally* unreliable.
 
 AspNetBackgroundTasks is a NuGet package that allows you to register "fire and forget" work with the ASP.NET runtime. The unreliability is minimized; the danger is mitigated. It **is** still unreliable and dangerous, however.
+
+Futher Reading
+===
+
+[Phil Haack: "The Dangers of Implementing Recurring Background Tasks in ASP.NET"](http://haacked.com/archive/2011/10/16/the-dangers-of-implementing-recurring-background-tasks-in-asp-net.aspx/)
+
+[Stephen Cleary: "Returning Early from ASP.NET Requests"](http://blog.stephencleary.com/2012/12/returning-early-from-aspnet-requests.html)
