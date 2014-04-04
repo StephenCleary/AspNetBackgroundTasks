@@ -10,6 +10,6 @@
     <projectUrl>https://github.com/StephenCleary/AspNetBackgroundTasks</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <tags>ASP.NET background task</tags>
+    <tags>ASP.NET fire-and-forget background task</tags>
   </metadata>
 </package>

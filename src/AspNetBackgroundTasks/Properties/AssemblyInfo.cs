@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("ASP.NET Background Tasks")]
-[assembly: AssemblyDescription("A component that registers background tasks with the ASP.NET runtime.")]
+[assembly: AssemblyDescription("A component that registers fire-and-forget tasks with the ASP.NET runtime.")]
 [assembly: AssemblyCompany("Stephen Cleary")]
 [assembly: AssemblyProduct("Nito.AspNetBackgroundTasks")]
 
