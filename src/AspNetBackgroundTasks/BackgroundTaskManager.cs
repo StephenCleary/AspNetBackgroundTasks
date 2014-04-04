@@ -24,12 +24,12 @@ namespace Nito.AspNetBackgroundTasks
         public static CancellationToken Shutdown { get { return Instance.Shutdown; } }
 
         /// <summary>
-        /// Executes an <c>async</c> background operation, registering it with ASP.NET.
+        /// Executes an asynchronous background operation, registering it with ASP.NET.
         /// </summary>
         /// <param name="operation">The background operation.</param>
         public static void Run(Func<Task> operation)
         {
-            Instance.Register(Task.Run(operation));
+            Instance.Run(operation);
         }
 
         /// <summary>
@@ -38,7 +38,7 @@ namespace Nito.AspNetBackgroundTasks
         /// <param name="operation">The background operation.</param>
         public static void Run(Action operation)
         {
-            Instance.Register(Task.Run(operation));
+            Instance.Run(operation);
         }
     }
 }

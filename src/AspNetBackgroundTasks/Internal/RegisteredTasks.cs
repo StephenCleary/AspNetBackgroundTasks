@@ -11,7 +11,7 @@ namespace Nito.AspNetBackgroundTasks.Internal
     /// <summary>
     /// A type that tracks background operations and notifies ASP.NET that they are still in progress.
     /// </summary>
-    internal sealed class RegisteredTasks : IRegisteredObject
+    public sealed class RegisteredTasks : IRegisteredObject
     {
         /// <summary>
         /// A cancellation token that is set when ASP.NET is shutting down the app domain.
@@ -28,6 +28,9 @@ namespace Nito.AspNetBackgroundTasks.Internal
         /// </summary>
         private readonly Task _done;
 
+        /// <summary>
+        /// Creates an instance that is registered with the ASP.NET runtime.
+        /// </summary>
         public RegisteredTasks()
         {
             // Start the count at 1 and decrement it when ASP.NET notifies us we're shutting down.
@@ -64,7 +67,7 @@ namespace Nito.AspNetBackgroundTasks.Internal
         /// Registers a task with the ASP.NET runtime. The task is unregistered when it completes.
         /// </summary>
         /// <param name="task">The task to register.</param>
-        public void Register(Task task)
+        private void Register(Task task)
         {
             _count.AddCount();
 
@@ -73,6 +76,24 @@ namespace Nito.AspNetBackgroundTasks.Internal
                 CancellationToken.None,
                 TaskContinuationOptions.ExecuteSynchronously,
                 TaskScheduler.Default);
+        }
+
+        /// <summary>
+        /// Executes an asynchronous background operation, registering it with ASP.NET.
+        /// </summary>
+        /// <param name="operation">The background operation.</param>
+        public void Run(Func<Task> operation)
+        {
+            Register(Task.Run(operation));
+        }
+
+        /// <summary>
+        /// Executes a background operation, registering it with ASP.NET.
+        /// </summary>
+        /// <param name="operation">The background operation.</param>
+        public void Run(Action operation)
+        {
+            Register(Task.Run(operation));
         }
     }
 }
