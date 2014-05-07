@@ -1,5 +1,12 @@
 ![logo](https://raw.githubusercontent.com/StephenCleary/AspNetBackgroundTasks/master/icon.png)
 
+Important Note
+===
+
+The [.NET framework 4.5.2 introduced `HostingEnvironment.QueueBackgroundWorkItem`](http://msdn.microsoft.com/en-us/library/ms171868(v=vs.110).aspx#v452), which effectively rendered this project obsolete. I recommend you upgrade to 4.5.2 and use `HostingEnvironment.QueueBackgroundWorkItem` instead of the `BackgroundTaskManager.Run` provided by this library.
+
+This project is placed into maintenance mode only as of 2014-05-07, since it is only useful on .NET 4.5.0 and 4.5.1. I will leave the code up indefinitely since it is one of the few examples of how to register work with the ASP.NET runtime; however, I do not plan on adding any features.
+
 Fire and Forget
 ===
 
@@ -72,6 +79,8 @@ The **reliable** way to handle this is complicated:
 * Add the background work to a reliable queue, such as an [Azure queue](http://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-queues-20/) or [MSMQ](http://msdn.microsoft.com/en-us/library/ms71147.aspx).
 * Have an independent worker process that executes the work in the queue, such as an [Azure WebJob](http://azure.microsoft.com/en-us/documentation/articles/web-sites-create-web-jobs/), an [Azure Worker Role](http://msdn.microsoft.com/en-us/library/azure/jj155995.aspx), or a [Win32 Service](http://msdn.microsoft.com/en-us/library/y817hyb6.aspx).
 * Determine some means to notify the end-user that the background processing has completed, such as email or [SignalR](http://signalr.net/).
+
+One good, reliable solution is [HangFire](http://hangfire.io).
 
 The Unreliable Solution
 ===
