@@ -3,9 +3,7 @@
 Important Note
 ===
 
-The [.NET framework 4.5.2 introduced `HostingEnvironment.QueueBackgroundWorkItem`](http://msdn.microsoft.com/en-us/library/ms171868(v=vs.110).aspx#v452), which effectively rendered this project obsolete. I recommend you upgrade to 4.5.2 and use `HostingEnvironment.QueueBackgroundWorkItem` instead of the `BackgroundTaskManager.Run` provided by this library.
-
-This project is placed into maintenance mode only as of 2014-05-07, since it is only useful on .NET 4.5.0 and 4.5.1. I will leave the code up indefinitely since it is one of the few examples of how to register work with the ASP.NET runtime; however, I do not plan on adding any features.
+The [.NET framework 4.5.2 introduced `HostingEnvironment.QueueBackgroundWorkItem`](http://msdn.microsoft.com/en-us/library/ms171868(v=vs.110).aspx#v452), which is very similar to this library. Consider upgrading to 4.5.2 and using `HostingEnvironment.QueueBackgroundWorkItem` instead of the `BackgroundTaskManager.Run` provided by this library.
 
 Fire and Forget
 ===
