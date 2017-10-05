@@ -65,7 +65,7 @@ BackgroundTaskManager.Run(() =>
 The Problem with Fire and Forget
 ===
 
-ASP.NET lives around a request lifecycle. If there are no active requests, ASP.NET may decide to unload your application. This is *perfectly normal*; by default ASP.NET will recycle your application every so often just to keep things clean.
+ASP.NET lives around a request lifecycle. If there are no active requests, ASP.NET may decide to unload your application. This is *perfectly normal*; by default IIS will recycle your application every so often just to keep things clean.
 
 This causes a problem for "fire and forget": ASP.NET isn't even aware that the background work is running. `BackgroundTaskManager` will register the background work with the ASP.NET runtime so it is aware of it. However, it's still not a perfectly reliable solution.
 
